@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",
@@ -59,5 +61,16 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "echo 'from husky'" 
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "echo 'from lint-stage'"
+    ]
+  }
 }
