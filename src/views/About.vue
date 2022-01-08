@@ -12,7 +12,7 @@ export default defineComponent({
     console.log("====");
 
     return {};
-  },
+  }
 });
 </script>
 

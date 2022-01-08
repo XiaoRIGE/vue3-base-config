@@ -68,7 +68,7 @@ module.exports = {
     parser: "@typescript-eslint/parser", //"babel-eslint",
     sourceType: "module",
     allowImportExportEverywhere: false,
-    codeFrame: false,
+    codeFrame: false
   },
 
   /**
@@ -85,7 +85,7 @@ module.exports = {
     "eslint:recommended", // 额外添加的规则可查看 https://vuejs.github.io/eslint-plugin-vue/rules/
     // "plugin:vue/recommended",
     "plugin:vue/vue3-essential",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
 
   /**
@@ -106,7 +106,7 @@ module.exports = {
    */
   env: {
     browser: true,
-    node: true,
+    node: true
   },
 
   /**
@@ -155,8 +155,8 @@ module.exports = {
         ignoreStrings: true,
         ignoreTemplateLiterals: true,
         ignoreRegExpLiterals: true,
-        ignorePattern: "data:image",
-      },
+        ignorePattern: "data:image"
+      }
     ],
     "no-plusplus": "off", //禁止使用++或者--
 
@@ -195,15 +195,15 @@ module.exports = {
       {
         singleline: 3,
         multiline: {
-          max: 3,
-        },
-      },
+          max: 3
+        }
+      }
     ],
     "vue/multi-word-component-names": [
       "off",
       {
-        ignores: [],
-      },
+        ignores: []
+      }
     ],
     // html标签需要在没有内容的元素上自动关闭 <test />
     "vue/html-self-closing": [
@@ -212,11 +212,11 @@ module.exports = {
         html: {
           void: "never",
           normal: "always",
-          component: "always",
+          component: "always"
         },
         svg: "always",
-        math: "always",
-      },
-    ],
-  },
+        math: "always"
+      }
+    ]
+  }
 };
