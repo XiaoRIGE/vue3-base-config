@@ -2,6 +2,7 @@
  * 参考文档
  * 【eslint英文文档】https://eslint.org/docs/user-guide/configuring
  * 【eslint中文文档】http://eslint.cn/docs/rules/
+ * 【eslint vue插件配置文档参考连接】  https://eslint.vuejs.org/rules/
  */
 
 /**
@@ -132,23 +133,23 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止console
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止debugger
-    "no-alert": process.env.NODE_ENV === "production" ? 2 : 0, // 打包时禁止alert
-    "no-dupe-args": 2, // 禁止在函数定义或表达中出现重名参数
-    "no-dupe-keys": 2, // 禁止在对象字面量中出现重复的键
-    "no-extra-boolean-cast": 2, // 禁止不必要的布尔类型转换，如 !!true
-    "no-unexpected-multiline": 2, // 禁止使用令人困惑的多行表达式
-    "use-isnan": 2, // 要求调用 isNaN()检查 NaN
-    "no-unsafe-negation": 2, // 禁止对关系运算符的左操作数使用否定操作符
-    "valid-typeof": 2, // 强制 typeof 表达式与有效的字符串进行比较
-    "block-scoped-var": 2, // 把 var 语句看作是在块级作用域范围之内
+    "no-alert": process.env.NODE_ENV === "production" ? "error" : "off", // 打包时禁止alert
+    "no-dupe-args": "error", // 禁止在函数定义或表达中出现重名参数
+    "no-dupe-keys": "error", // 禁止在对象字面量中出现重复的键
+    "no-extra-boolean-cast": "error", // 禁止不必要的布尔类型转换，如 !!true
+    "no-unexpected-multiline": "error", // 禁止使用令人困惑的多行表达式
+    "use-isnan": "error", // 要求调用 isNaN()检查 NaN
+    "no-unsafe-negation": "error", // 禁止对关系运算符的左操作数使用否定操作符
+    "valid-typeof": "error", // 强制 typeof 表达式与有效的字符串进行比较
+    "block-scoped-var": "error", // 把 var 语句看作是在块级作用域范围之内
     "default-case": 1, // 要求 Switch 语句中有 Default 分支
-    "no-param-reassign": 2, // 禁止对函数参数再赋值
-    "no-redeclare": 2, // 禁止重新声明变量
-    "require-await": 2, // 禁止使用不带 await 表达式的 async 函数
-    "vars-on-top": 2, // 要求将变量声明放在它们作用域的顶部
-    eqeqeq: [2, "smart"], // 要求使用 === 和 !==
+    "no-param-reassign": "error", // 禁止对函数参数再赋值
+    "no-redeclare": "error", // 禁止重新声明变量
+    "require-await": "error", // 禁止使用不带 await 表达式的 async 函数
+    "vars-on-top": "error", // 要求将变量声明放在它们作用域的顶部
+    eqeqeq: ["error", "smart"], // 要求使用 === 和 !==
     "max-len": [
-      1,
+      "off",
       {
         code: 120, //140,
         ignoreStrings: true,
@@ -157,38 +158,38 @@ module.exports = {
         ignorePattern: "data:image",
       },
     ],
-    "no-plusplus": 0, //禁止使用++或者--
+    "no-plusplus": "off", //禁止使用++或者--
 
-    "comma-dangle": 0, //要求或禁止尾随逗号
+    "comma-dangle": "off", //要求或禁止尾随逗号
 
-    "no-underscore-dangle": 0, //禁止悬挂下划线标识符
-    "no-unused-expressions": 0, //不允许使用表达式
-    "array-callback-return": 0, //在数组方法的回调中强制执行`return`语句
-    radix: 0,
+    "no-underscore-dangle": "off", //禁止悬挂下划线标识符
+    "no-unused-expressions": "off", //不允许使用表达式
+    "array-callback-return": "off", //在数组方法的回调中强制执行`return`语句
+    radix: "off",
     "consistent-return": 1, //要求始终或永远不会指定值的返回'语句
-    "class-methods-use-this": 0,
+    "class-methods-use-this": "off",
     "no-buffer-constructor": 1,
-    "no-continue": 0,
-    camelcase: 0,
+    "no-continue": "off",
+    camelcase: "off",
 
     "no-use-before-define": ["error", { functions: false, classes: false }],
 
-    "no-multiple-empty-lines": 0,
-    strict: 0,
-    "lines-between-class-members": 0,
-    "operator-linebreak": 0,
-    "no-else-return": 0,
+    "no-multiple-empty-lines": "off",
+    strict: "off",
+    "lines-between-class-members": "off",
+    "operator-linebreak": "off",
+    "no-else-return": "off",
 
-    "object-curly-newline": 0,
-    "operator-assignment": 0,
-    "vue/no-mutating-props": 0,
-    "vue/require-prop-type-constructor": 0,
-    "vue/return-in-computed-property": 0,
-    "vue/attribute-hyphenation": 0,
-    "vue/no-use-v-if-with-v-for": 0,
-    "vue/attributes-order": 0,
-    "vue/no-unused-components": 0,
-    "vue/require-default-prop": 0, //props是否需要默认值
+    "object-curly-newline": "off",
+    "operator-assignment": "off",
+    "vue/no-mutating-props": "off",
+    "vue/require-prop-type-constructor": "off",
+    "vue/return-in-computed-property": "off",
+    "vue/attribute-hyphenation": "off",
+    "vue/no-use-v-if-with-v-for": "off",
+    "vue/attributes-order": "off",
+    "vue/no-unused-components": "off",
+    "vue/require-default-prop": "off", //props是否需要默认值
     "vue/max-attributes-per-line": [
       "error",
       {
@@ -206,7 +207,7 @@ module.exports = {
     ],
     // html标签需要在没有内容的元素上自动关闭 <test />
     "vue/html-self-closing": [
-      "warn",
+      "off",
       {
         html: {
           void: "never",
