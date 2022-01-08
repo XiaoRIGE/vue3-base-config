@@ -9,7 +9,7 @@
     "checklint": "eslint --ext .js,.vue --ignore-path .gitignore . ",
     "fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore . ",
     "prepare": "husky install",
-    "commit":"git-cz"
+    "commit": "git-cz"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -33,6 +33,7 @@
     "babel-eslint": "^10.1.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-loader": "^4.0.2",
@@ -71,7 +72,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   }
 }
