@@ -68,7 +68,7 @@ module.exports = {
     parser: "@typescript-eslint/parser", //"babel-eslint",
     sourceType: "module",
     allowImportExportEverywhere: false,
-    codeFrame: false
+    codeFrame: false,
   },
 
   /**
@@ -85,7 +85,7 @@ module.exports = {
     "eslint:recommended", // 额外添加的规则可查看 https://vuejs.github.io/eslint-plugin-vue/rules/
     // "plugin:vue/recommended",
     "plugin:vue/vue3-essential",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
 
   /**
@@ -106,7 +106,24 @@ module.exports = {
    */
   env: {
     browser: true,
-    node: true
+    node: true,
+  },
+
+  /**
+   * eslint和prettier重合的规则有很多，如果需要每个都配置一样的话，就会很繁琐，
+   * 所有eslint出了一个eslint-plugin-prettier的东西，是把prettier当作eslint的一个插件，重合的部分按照prettier的规则来
+   */
+  plugins: ["prettier"],
+  rules: {
+    "prettier/prettier": "error",
+    // prettier中未配置的规则可以在这里补充
+    "comma-dangle": "off", //要求或禁止尾随逗号
+    "vue/multi-word-component-names": [
+      "off",
+      {
+        ignores: [],
+      },
+    ],
   },
 
   /**
@@ -117,7 +134,7 @@ module.exports = {
    * 【】插件的作用类似于解析器，用以扩展解析器的功能，用于检测非常规的js代码。也可能会新增一些特定的规则。
    * 【】如 eslint-plugin-vue，是为了帮助我们检测.vue文件中 &lt;template&gt; 和 &lt;script&gt; 中的js代码
    */
-  plugins: ["vue"],
+  // plugins: ["vue"],
 
   /**
    * 自定义规则
@@ -130,93 +147,93 @@ module.exports = {
    * 【】如果某项规则，有额外的选项，可以通过数组进行传递，而数组的第一位必须是错误级别。如0,1,2
    *  如 'semi': ['error', 'never'], never就是额外的配置项
    */
-  rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止console
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止debugger
-    "no-alert": process.env.NODE_ENV === "production" ? "error" : "off", // 打包时禁止alert
-    "no-dupe-args": "error", // 禁止在函数定义或表达中出现重名参数
-    "no-dupe-keys": "error", // 禁止在对象字面量中出现重复的键
-    "no-extra-boolean-cast": "error", // 禁止不必要的布尔类型转换，如 !!true
-    "no-unexpected-multiline": "error", // 禁止使用令人困惑的多行表达式
-    "use-isnan": "error", // 要求调用 isNaN()检查 NaN
-    "no-unsafe-negation": "error", // 禁止对关系运算符的左操作数使用否定操作符
-    "valid-typeof": "error", // 强制 typeof 表达式与有效的字符串进行比较
-    "block-scoped-var": "error", // 把 var 语句看作是在块级作用域范围之内
-    "default-case": 1, // 要求 Switch 语句中有 Default 分支
-    "no-param-reassign": "error", // 禁止对函数参数再赋值
-    "no-redeclare": "error", // 禁止重新声明变量
-    "require-await": "error", // 禁止使用不带 await 表达式的 async 函数
-    "vars-on-top": "error", // 要求将变量声明放在它们作用域的顶部
-    eqeqeq: ["error", "smart"], // 要求使用 === 和 !==
-    "max-len": [
-      "off",
-      {
-        code: 120, //140,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreRegExpLiterals: true,
-        ignorePattern: "data:image"
-      }
-    ],
-    "no-plusplus": "off", //禁止使用++或者--
+  // rules: {
+  //   "no-console": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止console
+  //   "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止debugger
+  //   "no-alert": process.env.NODE_ENV === "production" ? "error" : "off", // 打包时禁止alert
+  //   "no-dupe-args": "error", // 禁止在函数定义或表达中出现重名参数
+  //   "no-dupe-keys": "error", // 禁止在对象字面量中出现重复的键
+  //   "no-extra-boolean-cast": "error", // 禁止不必要的布尔类型转换，如 !!true
+  //   "no-unexpected-multiline": "error", // 禁止使用令人困惑的多行表达式
+  //   "use-isnan": "error", // 要求调用 isNaN()检查 NaN
+  //   "no-unsafe-negation": "error", // 禁止对关系运算符的左操作数使用否定操作符
+  //   "valid-typeof": "error", // 强制 typeof 表达式与有效的字符串进行比较
+  //   "block-scoped-var": "error", // 把 var 语句看作是在块级作用域范围之内
+  //   "default-case": 1, // 要求 Switch 语句中有 Default 分支
+  //   "no-param-reassign": "error", // 禁止对函数参数再赋值
+  //   "no-redeclare": "error", // 禁止重新声明变量
+  //   "require-await": "error", // 禁止使用不带 await 表达式的 async 函数
+  //   "vars-on-top": "error", // 要求将变量声明放在它们作用域的顶部
+  //   eqeqeq: ["error", "smart"], // 要求使用 === 和 !==
+  //   "max-len": [
+  //     "off",
+  //     {
+  //       code: 120, //140,
+  //       ignoreStrings: true,
+  //       ignoreTemplateLiterals: true,
+  //       ignoreRegExpLiterals: true,
+  //       ignorePattern: "data:image"
+  //     }
+  //   ],
+  //   "no-plusplus": "off", //禁止使用++或者--
 
-    "comma-dangle": "off", //要求或禁止尾随逗号
+  //   "comma-dangle": "off", //要求或禁止尾随逗号
 
-    "no-underscore-dangle": "off", //禁止悬挂下划线标识符
-    "no-unused-expressions": "off", //不允许使用表达式
-    "array-callback-return": "off", //在数组方法的回调中强制执行`return`语句
-    radix: "off",
-    "consistent-return": 1, //要求始终或永远不会指定值的返回'语句
-    "class-methods-use-this": "off",
-    "no-buffer-constructor": 1,
-    "no-continue": "off",
-    camelcase: "off",
+  //   "no-underscore-dangle": "off", //禁止悬挂下划线标识符
+  //   "no-unused-expressions": "off", //不允许使用表达式
+  //   "array-callback-return": "off", //在数组方法的回调中强制执行`return`语句
+  //   radix: "off",
+  //   "consistent-return": 1, //要求始终或永远不会指定值的返回'语句
+  //   "class-methods-use-this": "off",
+  //   "no-buffer-constructor": 1,
+  //   "no-continue": "off",
+  //   camelcase: "off",
 
-    "no-use-before-define": ["error", { functions: false, classes: false }],
+  //   "no-use-before-define": ["error", { functions: false, classes: false }],
 
-    "no-multiple-empty-lines": "off",
-    strict: "off",
-    "lines-between-class-members": "off",
-    "operator-linebreak": "off",
-    "no-else-return": "off",
+  //   "no-multiple-empty-lines": "off",
+  //   strict: "off",
+  //   "lines-between-class-members": "off",
+  //   "operator-linebreak": "off",
+  //   "no-else-return": "off",
 
-    "object-curly-newline": "off",
-    "operator-assignment": "off",
-    "vue/no-mutating-props": "off",
-    "vue/require-prop-type-constructor": "off",
-    "vue/return-in-computed-property": "off",
-    "vue/attribute-hyphenation": "off",
-    "vue/no-use-v-if-with-v-for": "off",
-    "vue/attributes-order": "off",
-    "vue/no-unused-components": "off",
-    "vue/require-default-prop": "off", //props是否需要默认值
-    "vue/max-attributes-per-line": [
-      "error",
-      {
-        singleline: 3,
-        multiline: {
-          max: 3
-        }
-      }
-    ],
-    "vue/multi-word-component-names": [
-      "off",
-      {
-        ignores: []
-      }
-    ],
-    // html标签需要在没有内容的元素上自动关闭 <test />
-    "vue/html-self-closing": [
-      "off",
-      {
-        html: {
-          void: "never",
-          normal: "always",
-          component: "always"
-        },
-        svg: "always",
-        math: "always"
-      }
-    ]
-  }
+  //   "object-curly-newline": "off",
+  //   "operator-assignment": "off",
+  //   "vue/no-mutating-props": "off",
+  //   "vue/require-prop-type-constructor": "off",
+  //   "vue/return-in-computed-property": "off",
+  //   "vue/attribute-hyphenation": "off",
+  //   "vue/no-use-v-if-with-v-for": "off",
+  //   "vue/attributes-order": "off",
+  //   "vue/no-unused-components": "off",
+  //   "vue/require-default-prop": "off", //props是否需要默认值
+  //   "vue/max-attributes-per-line": [
+  //     "error",
+  //     {
+  //       singleline: 3,
+  //       multiline: {
+  //         max: 3
+  //       }
+  //     }
+  //   ],
+  //   "vue/multi-word-component-names": [
+  //     "off",
+  //     {
+  //       ignores: []
+  //     }
+  //   ],
+  //   // html标签需要在没有内容的元素上自动关闭 <test />
+  //   "vue/html-self-closing": [
+  //     "off",
+  //     {
+  //       html: {
+  //         void: "never",
+  //         normal: "always",
+  //         component: "always"
+  //       },
+  //       svg: "always",
+  //       math: "always"
+  //     }
+  //   ]
+  // }
 };

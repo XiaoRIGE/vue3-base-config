@@ -5,14 +5,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, reactive } from "vue";
 export default defineComponent({
   name: "Test",
   setup() {
-    console.log("====");
-
-    return {};
-  }
+    let name_a = ref(0);
+    let name_c = ref(1);
+    let name_v = reactive({
+      name: "teste",
+    });
+    return { name_a, name_c, name_v };
+  },
 });
 </script>
 
