@@ -1,5 +1,6 @@
 // 此处的规则供参考，其中多半其实都是默认值，可以根据个人习惯改写
-// 规则配置参考地址 https://prettier.io/docs/en/options.htm
+// prettier规则配置参考地址 https://prettier.io/docs/en/options.html
+// eslint配置规则参考地址 https://eslint.org/docs/rules/
 module.exports = {
   singleQuote: false, //使用单引号
   htmlWhitespaceSensitivity: "ignore", //对HTML全局空白不敏感
