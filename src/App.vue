@@ -6,6 +6,20 @@
   </div>
   <router-view />
 </template>
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  setup() {
+    debugger;
+    console.log(
+      "===========process.env",
+      process.env,
+      process.env.VUE_APP_BASE_URL,
+    );
+  },
+});
+</script>
 
 <style>
 #app {

@@ -117,6 +117,9 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     // prettier中未配置的规则可以在这里补充
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止console
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止debugger
+    "no-alert": process.env.NODE_ENV === "production" ? "warn" : "off", // 打包时禁止alert
     "comma-dangle": "off", //要求或禁止尾随逗号
     "vue/multi-word-component-names": [
       "off",
