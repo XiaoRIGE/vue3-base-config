@@ -11,7 +11,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   setup() {
-    debugger;
     console.log(
       "===========process.env",
       process.env,
