@@ -49,6 +49,7 @@
     "less": "^2.7.0",
     "less-loader": "^5.0.0",
     "prettier": "^2.5.1",
+    "terser-webpack-plugin": "^2.3.8",
     "typescript": "~4.1.5"
   },
   "eslintConfig": {

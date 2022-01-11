@@ -1,6 +1,7 @@
 // 配置参考地址 https://cli.vuejs.org/zh/config/#%E5%85%A8%E5%B1%80-cli-%E9%85%8D%E7%BD%AE
 
-// const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); //已经被webpack4遗弃替换方案是config.optimization.minimizer('terser')
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); //已经被webpack4遗弃 替换方案是terser-webpack-plugin
+const TerserPlugin = require("terser-webpack-plugin");
 
 // cnd加速配置
 const externals = {
@@ -54,7 +55,11 @@ module.exports = {
   configureWebpack: (config) => {
     // console.log("config", config);
     if (!IS_DEV) {
-      config.optimization.minimizer = [];
+      // config.optimization.minimizer = [];
+      config.optimization = {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+      };
 
       config.externals = externals;
       //打包文件大小配置 todo
