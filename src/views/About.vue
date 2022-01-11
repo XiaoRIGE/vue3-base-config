@@ -3,13 +3,14 @@
     <h1>components style</h1>
     <CompositionApi />
     <ComClassComponent :count="2" />
+    <p class="color-red">Test Text</p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue";
-import CompositionApi from "@/components/Com-CompositionApi.vue";
-import ComClassComponent from "@/components/Com-ClassComponent.vue";
+import CompositionApi from "components/Com-CompositionApi.vue";
+import ComClassComponent from "components/Com-ClassComponent.vue";
 
 export default defineComponent({
   name: "Test",
@@ -24,3 +25,8 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="less" scope>
+.color-red {
+  color: red;
+}
+</style>
