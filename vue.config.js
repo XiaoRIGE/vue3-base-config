@@ -57,11 +57,59 @@ module.exports = {
     if (!IS_DEV) {
       // config.optimization.minimizer = [];
       config.optimization = {
-        minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimize: false, //暂时不压缩
+        minimizer: [
+          new TerserPlugin({
+            parallel: 4, //启用多进程并发运行并设置并发运行次数
+          }),
+        ],
+        // splitChunks 提取公共代码，防止代码被重复打包，拆分过大的js文件，合并零散的js文件
+        // splitChunks: {
+        //   //默认作用于异步chunk，值为all/initial/async/function(chunk),值为function时第一个参数为遍历所有入口chunk时的chunk模块，chunk._modules为chunk所有依赖的模块，通过chunk的名字和所有依赖模块的resource可以自由配置,会抽取所有满足条件chunk的公有模块，以及模块的所有依赖模块，包括css
+        //   chunks: "async",
+        //   minSize: 30000, //表示在压缩前的最小模块大小,默认值是30kb
+        //   minChunks: 1, // 表示被引用次数，默认为1；
+        //   maxAsyncRequests: 5, //所有异步请求不得超过5个
+        //   maxInitialRequests: 3, //初始话并行请求不得超过3个
+        //   automaticNameDelimiter: "~", //名称分隔符，默认是~
+        //   name: true, //打包后的名称，默认是chunk的名字通过分隔符（默认是～）分隔
+        //   cacheGroups: {
+        //     vendor: {
+        //       //第三方库抽离
+        //       chunks: "all",
+        //       test: /node_modules/,
+        //       name: "vendor",
+        //       minChunks: 1, //在分割之前，这个代码块最小应该被引用的次数
+        //       maxInitialRequests: 5,
+        //       minSize: 0, //大于0个字节
+        //       priority: 100, //权重
+        //     },
+        //     common: {
+        //       //公用模块抽离
+        //       chunks: "all",
+        //       test: /[\\/]src[\\/]js[\\/]/,
+        //       name: "common",
+        //       minChunks: 1, //在分割之前，这个代码块最小应该被引用的次数
+        //       maxInitialRequests: 5,
+        //       minSize: 0, //大于0个字节
+        //       priority: 60,
+        //     },
+        //     styles: {
+        //       //样式抽离
+        //       name: "styles",
+        //       test: /\.(le|c)ss$/,
+        //       chunks: "all",
+        //       enforce: true,
+        //     },
+        //     runtimeChunk: {
+        //       name: "manifest",
+        //     },
+        //   },
+        // },
       };
 
-      config.externals = externals;
+      config.externals = externals; //配置外部拓展
+
       //打包文件大小配置 todo
       // config["performance"] = {
       //   maxEntrypointSize: 10000000,
