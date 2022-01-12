@@ -3,6 +3,10 @@
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); //已经被webpack4遗弃 替换方案是terser-webpack-plugin
 const TerserPlugin = require("terser-webpack-plugin");
 
+// 打包分析
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
 // cnd加速配置
 const externals = {
   vue: "Vue",
@@ -138,6 +142,12 @@ module.exports = {
       }
       return args;
     });
+
+    config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
+      {
+        analyzerMode: "static",
+      },
+    ]);
   },
   css: {
     extract: true, //Default: 生产环境下是 true，开发环境下是 false 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码) 代替了MiniCssExtractPlugin

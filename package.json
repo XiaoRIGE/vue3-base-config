@@ -9,6 +9,7 @@
     "build:dev": "vue-cli-service build --mode development",
     "build:qa": "vue-cli-service build --mode preview",
     "build": "vue-cli-service build",
+    "report":"vue-cli-service build --report",
     "inspect": "vue-cli-service inspect --development",
     "lint": "vue-cli-service lint",
     "checklint": "eslint --ext .js,.vue --ignore-path .gitignore . ",
@@ -50,7 +51,8 @@
     "less-loader": "^5.0.0",
     "prettier": "^2.5.1",
     "terser-webpack-plugin": "^2.3.8",
-    "typescript": "~4.1.5"
+    "typescript": "~4.1.5",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "eslintConfig": {
     "root": true,
