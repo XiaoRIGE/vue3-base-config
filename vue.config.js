@@ -68,21 +68,83 @@ module.exports = {
           }),
         ],
         // splitChunks 提取公共代码，防止代码被重复打包，拆分过大的js文件，合并零散的js文件
+        splitChunks: {
+          chunks: "all",
+          minSize: 3000, // （默认值：30000）块的最小大小。
+          minChunks: 1, //（默认值：1）在拆分之前共享模块的最小块数
+          maxAsyncRequests: 5, //（默认值为5）按需加载时并行请求的最大数量
+          maxInitialRequests: 6, // （默认值为3）入口点的最大并行请求数
+          automaticNameDelimiter: "-",
+          name: true,
+          cacheGroups: {
+            lodash: {
+              name: "lodash",
+              test: /[\\/]node_modules[\\/]lodash[\\/]/,
+              priority: 20,
+            },
+            vue: {
+              name: "vue",
+              test: /[\\/]node_modules[\\/]vue[\\/]/,
+            },
+            vuex: {
+              name: "vuex",
+              test: /[\\/]node_modules[\\/]vuex[\\/]/,
+            },
+            "vuex-presistedstate": {
+              name: "vuex-presistedstate",
+              test: /[\\/]node_modules[\\/]vuex-presistedstate[\\/]/,
+            },
+            "vue-router": {
+              name: "vue-router",
+              test: /[\\/]node_modules[\\/]vue-router[\\/]/,
+            },
+            "ant-design-vue": {
+              name: "ant-design-vue",
+              test: /[\\/]node_modules[\\/]ant-design-vue[\\/]/,
+            },
+            moment: {
+              name: "moment",
+              test: /[\\/]node_modules[\\/]moment[\\/]/,
+              priority: 40,
+            },
+          },
+        },
+        // splitChunks: {
+        //   chunks: "async",
+        //   minSize: 30000,
+        //   maxSize: 0,
+        //   minChunks: 1,
+        //   maxAsyncRequests: 5,
+        //   maxInitialRequests: 3,
+        //   automaticNameDelimiter: "~",
+        //   name: true,
+        //   cacheGroups: {
+        //     vendors: {
+        //       test: /[\\/]node_modules[\\/]/,
+        //       priority: -10,
+        //     },
+        //     default: {
+        //       minChunks: 2,
+        //       priority: -20,
+        //       reuseExistingChunk: true,
+        //     },
+        //   },
+        // },
         // splitChunks: {
         //   //默认作用于异步chunk，值为all/initial/async/function(chunk),值为function时第一个参数为遍历所有入口chunk时的chunk模块，chunk._modules为chunk所有依赖的模块，通过chunk的名字和所有依赖模块的resource可以自由配置,会抽取所有满足条件chunk的公有模块，以及模块的所有依赖模块，包括css
-        //   chunks: "async",
+        //   chunks: "all",
         //   minSize: 30000, //表示在压缩前的最小模块大小,默认值是30kb
         //   minChunks: 1, // 表示被引用次数，默认为1；
         //   maxAsyncRequests: 5, //所有异步请求不得超过5个
         //   maxInitialRequests: 3, //初始话并行请求不得超过3个
-        //   automaticNameDelimiter: "~", //名称分隔符，默认是~
+        //   automaticNameDelimiter: "-", //名称分隔符，默认是~
         //   name: true, //打包后的名称，默认是chunk的名字通过分隔符（默认是～）分隔
         //   cacheGroups: {
         //     vendor: {
         //       //第三方库抽离
         //       chunks: "all",
         //       test: /node_modules/,
-        //       name: "vendor",
+        //       name: "vendor", // 打包后的文件名，任意命名
         //       minChunks: 1, //在分割之前，这个代码块最小应该被引用的次数
         //       maxInitialRequests: 5,
         //       minSize: 0, //大于0个字节
@@ -90,10 +152,10 @@ module.exports = {
         //     },
         //     common: {
         //       //公用模块抽离
-        //       chunks: "all",
-        //       test: /[\\/]src[\\/]js[\\/]/,
+        //       chunks: "initial",
+        //       // test: /[\\/]src[\\/]js[\\/]/,
         //       name: "common",
-        //       minChunks: 1, //在分割之前，这个代码块最小应该被引用的次数
+        //       minChunks: 2, //在分割之前，这个代码块最小应该被引用的次数
         //       maxInitialRequests: 5,
         //       minSize: 0, //大于0个字节
         //       priority: 60,
@@ -105,9 +167,9 @@ module.exports = {
         //       chunks: "all",
         //       enforce: true,
         //     },
-        //     runtimeChunk: {
-        //       name: "manifest",
-        //     },
+        //     // runtimeChunk: {
+        //     //   name: "manifest",
+        //     // },
         //   },
         // },
       };

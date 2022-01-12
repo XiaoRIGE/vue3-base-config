@@ -16,7 +16,7 @@
 - 文档工具:typedoc（暂无）
 - 代码检查:eslint+eslint-typescript（暂无）,格式化:prettier.
 - 测试用例:mocha,ts-node（暂无）
-- webpack 插件:style-resources-loader（暂无） terser-webpack-plugin（压缩文件）
+- webpack 插件:style-resources-loader（暂无） terser-webpack-plugin（压缩文件）webpack-bundle-analyzer(打包文件分析)
 
 #### 开发工具
 

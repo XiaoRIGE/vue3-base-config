@@ -10,9 +10,11 @@
 </template>
 <script>
 import { defineComponent } from "vue";
+import { add } from "@/utils/index";
 
 export default defineComponent({
   setup() {
+    console.log(add(1, 90));
     console.log(
       "===========process.env",
       process.env,
