@@ -1,5 +1,7 @@
 // 配置参考地址 https://cli.vuejs.org/zh/config/#%E5%85%A8%E5%B1%80-cli-%E9%85%8D%E7%BD%AE
 
+const webpack = require("webpack");
+
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); //已经被webpack4遗弃 替换方案是terser-webpack-plugin
 const TerserPlugin = require("terser-webpack-plugin");
 
@@ -204,6 +206,19 @@ module.exports = {
       }
       return args;
     });
+
+    /**
+     * 优化moment 去掉国际化内容  // 忽略/moment/locale下的所有文件
+     * 如果需要使用中文语言包 则手动引入即可
+     * import moment from 'moment'
+     * 手动引入所需要的语言包
+     * import 'moment/locale/zh-cn';
+     * 指定使用的语言
+     * moment.locale('zh-cn');
+     */
+    config
+      .plugin("ignore")
+      .use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
 
     config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
       {

@@ -7,7 +7,7 @@ module.exports = {
       {
         libraryName: "ant-design-vue",
         libraryDirectory: "es",
-        style: true,
+        style: true, //todo 样式还未按需引入而是全局引入
       },
     ],
   ],

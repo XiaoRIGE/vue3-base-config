@@ -8,9 +8,9 @@
 - 建议使用 yarn,也是 vue-cli4.0+ 默认工具(我用的是@vue/cli 4.5.13)
 #### 主要用到的库
 
-- vue 全家桶 vue3 + vue-router + vuex + typescript
+- vue 全家桶 vue3 + vue-router + vuex + typescript + ant-design-vue
 - http 请求:axios
-- ui 库:ant-design-vue（暂定）.
+- ui 库:ant-design-vue
 - 提交规范:git cz commitizen
 - 版本更改历史: changelog（暂无）
 - 文档工具:typedoc（暂无）
@@ -22,6 +22,12 @@
 
 - [x] eslint 代码检查,配置 prettier 格式化工具,使检查规则和格式化规则一致，使用eslint-plugin-prettier插件，重合的部分按照prettier的规则来，prettier中未定义的补充到eslintrc中的rule下即可
 - [x] 代码提交git commit 规范配置  
+
+#### UI 库
+
+- [x] 添加 ant-design-vue,支持组件按需加载
+- [x] 将 UI 库部分功能如 message 添加到每个组件实例(暂无 todo)
+
 
 #### 代码基础架构说明
 
@@ -76,7 +82,7 @@
     |-- .prettierrc.js 格式化插件配置 可以按照公司规范定制
     |-- README.md 项目说明
     |-- .cz-config 自定义git-commit配置信息
-    |-- babel.config.js babel 设置
+    |-- babel.config.js babel 设置 (包含Ui框架的按需引入配置)
     |-- global.d.ts 全局的 type
     |-- package.json npm 配置
     |-- tsconfig.json typescript 配置
@@ -84,27 +90,4 @@
     |-- vue.config.js vue-cli 脚手架配置文件
 ```
 
-## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
