@@ -14,7 +14,6 @@ const externals = {
   vue: "Vue",
   "vue-router": "VueRouter",
   vuex: "Vuex",
-  // axios: "axios",
 };
 // CDN外链，会插入到index.html中 具体取决于公司的情况 没有就用免费的
 const cdn = {
@@ -32,9 +31,6 @@ const cdn = {
       "https://cdn.staticfile.org/vue/3.2.26/vue.runtime.global.prod.min.js",
       "https://cdn.staticfile.org/vue-router/4.0.0/vue-router.global.prod.min.js",
       "https://cdn.staticfile.org/vuex/4.0.0/vuex.global.prod.min.js",
-
-      // "https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js",
-      // "https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js",
     ],
   },
 };
@@ -52,7 +48,6 @@ module.exports = {
   // 选项...
   publicPath: "./",
   outputDir: "dist",
-  // libraryTarget: "umd",
   assetsDir: "static", //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。提示:从生成的资源覆写 filename 或 chunkFilename 时，assetsDir 会被忽略。
   lintOnSave: IS_DEV, //在生产构建时禁用 eslint-loader
   productionSourceMap: IS_DEV, //在生产构建时禁用 SourceMap
@@ -61,18 +56,34 @@ module.exports = {
   configureWebpack: (config) => {
     // console.log("config", config);
     if (!IS_DEV) {
-      // config.optimization.minimizer = [];
       config.optimization = {
-        minimize: false, //暂时不压缩
+        minimize: true,
         minimizer: [
           new TerserPlugin({
             parallel: 4, //启用多进程并发运行并设置并发运行次数
           }),
         ],
         // splitChunks 提取公共代码，防止代码被重复打包，拆分过大的js文件，合并零散的js文件
+        /**
+         * chunks 表示哪些代码需要优化，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为async
+         * minSize: 表示在压缩前的最小模块大小，默认为30000
+         * minChunks: 表示被引用次数，默认为1
+         * maxAsyncRequests: 按需加载时候最大的并行请求数，默认为5
+         * maxInitialRequests: 一个入口最大的并行请求数，默认为3
+         * automaticNameDelimiter: 命名连接符
+         * name: 拆分出来块的名字，默认由块名和hash值自动生成
+         * cacheGroups: 缓存组。缓存组的属性除上面所有属性外，还有test, priority, reuseExistingChunk
+         *  test: 用于控制哪些模块被这个缓存组匹配到
+         *  priority: 缓存组打包的先后优先级
+         *  reuseExistingChunk: 如果当前代码块包含的模块已经有了，就不在产生一个新的代码块
+
+         */
+        runtimeChunk: {
+          name: "manifest",
+        },
         splitChunks: {
           chunks: "all",
-          minSize: 3000, // （默认值：30000）块的最小大小。
+          minSize: 30000, // （默认值：30000）块的最小大小。
           minChunks: 1, //（默认值：1）在拆分之前共享模块的最小块数
           maxAsyncRequests: 5, //（默认值为5）按需加载时并行请求的最大数量
           maxInitialRequests: 6, // （默认值为3）入口点的最大并行请求数
@@ -169,9 +180,6 @@ module.exports = {
         //       chunks: "all",
         //       enforce: true,
         //     },
-        //     // runtimeChunk: {
-        //     //   name: "manifest",
-        //     // },
         //   },
         // },
       };
@@ -228,15 +236,7 @@ module.exports = {
   },
   css: {
     extract: true, //Default: 生产环境下是 true，开发环境下是 false 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码) 代替了MiniCssExtractPlugin
-    sourceMap: false, //todo 试一下开发环境的提取是否为 CSS 开启 source map。设置为 true 之后可能会影响构建的性能。
-    // loaderOptions: {
-    //   css: {
-    //     // 这里的选项会传递给 css-loader
-    //   },
-    //   postcss: {
-    //     // 这里的选项会传递给 postcss-loader
-    //   },
-    // },
+    sourceMap: false,
   },
   // 第三方插件选项
   pluginOptions: {},

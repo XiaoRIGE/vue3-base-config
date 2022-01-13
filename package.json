@@ -8,7 +8,7 @@
     "serve:pro": "vue-cli-service serve --mode production",
     "build:dev": "vue-cli-service build --mode development",
     "build:qa": "vue-cli-service build --mode preview",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode production",
     "report": "vue-cli-service build --report",
     "inspect": "vue-cli-service inspect --development",
     "lint": "vue-cli-service lint",
