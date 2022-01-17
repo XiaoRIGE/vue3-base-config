@@ -186,11 +186,15 @@ module.exports = {
 
       config.externals = externals; //配置外部拓展
 
-      //打包文件大小配置 todo
-      // config["performance"] = {
-      //   maxEntrypointSize: 10000000,
-      //   maxAssetSize: 30000000,
-      // };
+      // 警告 webpack 的性能提示
+      config["performance"] = {
+        maxEntrypointSize: 10000000, // 入口起点的最大体积
+        maxAssetSize: 30000000, // 生成文件的最大体积
+        // 只给出 js 文件的性能提示
+        assetFilter: function (assetFilename) {
+          return assetFilename.endsWith(".js");
+        },
+      };
     }
   },
   // chainWebpack  是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改
