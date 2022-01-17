@@ -21,5 +21,4 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "sync.gist": "652a6f70dea7de10448091cbffb56187"
 }

@@ -31,10 +31,9 @@ module.exports = {
     ["components", "组件相关"],
     ["hooks", "hook 相关"],
     ["utils", "utils 相关"],
-    ["element-ui", "对 element-ui 的调整"],
+    ["antdv", "对 ant-design-vue 的调整"],
     ["styles", "样式相关"],
     ["deps", "项目依赖"],
-    ["auth", "对 auth 修改"],
     ["other", "其他修改"],
     // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
     ["custom", "以上都不是？我要自定义"],
