@@ -4,7 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve:qa": "vue-cli-service serve --mode preview",
+    "serve:pro": "vue-cli-service serve --mode production",
+    "build:dev": "vue-cli-service build --mode development",
+    "build:qa": "vue-cli-service build --mode preview",
+    "build": "vue-cli-service build --mode production",
+    "report": "cross-env use_analyzer=true vue-cli-service build",
+    "inspect": "vue-cli-service inspect --development",
     "lint": "vue-cli-service lint",
     "checklint": "eslint --ext .js,.vue --ignore-path .gitignore . ",
     "fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore . ",
@@ -13,12 +19,15 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "ant-design-vue": "^2.2.8",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "lint-staged": "^12.1.7",
-    "vue": "^3.0.0",
+    "vue": "^3.2.0",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
@@ -32,7 +41,9 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.0",
     "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
     "eslint": "^8.6.0",
@@ -44,7 +55,9 @@
     "less": "^2.7.0",
     "less-loader": "^5.0.0",
     "prettier": "^2.5.1",
-    "typescript": "~4.1.5"
+    "terser-webpack-plugin": "^2.3.8",
+    "typescript": "~4.1.5",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "eslintConfig": {
     "root": true,
@@ -75,5 +88,14 @@
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
-  }
+  },
+  "description": "vue3+vuex+antdv 搭建的项目基础架构,帮助快速搭建vue3代码架构,可以按需根据项目需求在此基础上进行改进或者直接使用",
+  "keywords": [
+    "vue3",
+    "typescript",
+    "antdv",
+    "ant-design-vue",
+    "vuex",
+    "srj"
+  ]
 }
