@@ -21,19 +21,19 @@
 
 #### 开发工具
 
-- [√] eslint 代码检查,配置 prettier 格式化工具,使检查规则和格式化规则一致，使用eslint-plugin-prettier插件，重合的部分按照prettier的规则来，prettier中未定义的补充到eslintrc中的rule下即可
-- [√] 代码提交git commit 规范配置  
-- [√] 实现vue插件自动注册，只需要按规定将插件配置放在plugins目录下即可
-- [√] 路由配置懒加载
-- [√] 封装了一套基于modal更简单快捷的使用vuex方式
-- [√] 第三方资源使用cdn方式加载
-- [√] 打包时忽略moment包中最庞大的local部分，如果需要使用里边的语言包，按需引入即可（大幅降低因为moment打包文件大小）
-- [√] 配置打包文件分析
+- [x] eslint 代码检查,配置 prettier 格式化工具,使检查规则和格式化规则一致，使用eslint-plugin-prettier插件，重合的部分按照prettier的规则来，prettier中未定义的补充到eslintrc中的rule下即可
+- [x] 代码提交git commit 规范配置  
+- [x] 实现vue插件自动注册，只需要按规定将插件配置放在plugins目录下即可
+- [x] 路由配置懒加载
+- [x] 封装了一套基于modal更简单快捷的使用vuex方式
+- [x] 第三方资源使用cdn方式加载
+- [x] 打包时忽略moment包中最庞大的local部分，如果需要使用里边的语言包，按需引入即可（大幅降低因为moment打包文件大小）
+- [x] 配置打包文件分析
 
 #### UI 库
 
-- [√] 添加 ant-design-vue,支持组件按需加载
-- [x] 将 UI 库部分功能如 message 添加到每个组件实例
+- [x] 添加 ant-design-vue,支持组件按需加载
+- [ ] 将 UI 库部分功能如 message 添加到每个组件实例
 
 
 #### 代码基础架构说明
