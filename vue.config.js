@@ -232,11 +232,9 @@ module.exports = {
       .plugin("ignore")
       .use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
 
-    config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
-      {
-        analyzerMode: "static",
-      },
-    ]);
+    if (process.env.use_analyzer) {
+      config.plugin("webpack-bundle-analyzer").use(BundleAnalyzerPlugin);
+    }
   },
   css: {
     extract: true, //Default: 生产环境下是 true，开发环境下是 false 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码) 代替了MiniCssExtractPlugin
