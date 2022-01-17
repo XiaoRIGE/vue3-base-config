@@ -86,5 +86,14 @@
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
-  }
+  },
+  "description": "vue3+vuex+antdv 搭建的项目基础架构,帮助快速搭建vue3代码架构,可以按需根据项目需求在此基础上进行改进或者直接使用",
+  "keywords": [
+    "vue3",
+    "typescript",
+    "antdv",
+    "ant-design-vue",
+    "vuex",
+    "srj"
+  ]
 }
