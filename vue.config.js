@@ -206,6 +206,15 @@ module.exports = {
       .set("services", resolve("src/services"))
       .set("components", resolve("src/components"));
 
+    /**
+     * vue-cli 默认会把所有通过import()按需加载的javascript文件加上 prefetch
+     * <link rel="prefetch">会在页面加载完成后，利用空闲时间提前加载获取用户未来可能会访问的内容。
+     * prefetch链接会消耗宽带，如果是在移动端，而且存在大量的chunk，那么可以关掉 prefetch 链接，手动选择要提前获取的代码区块。
+     * 手动选定要提前获取的代码  import(webpackPrefetch: true, './someAsyncComponent.vue')
+     */
+    // 移除 prefetch 插件
+    config.plugins.delete("prefetch");
+
     //
     /**
      * 添加CDN参数到htmlWebpackPlugin配置中

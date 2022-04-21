@@ -7,6 +7,7 @@
     <router-link to="/demo-page1">demo1</router-link>
   </div>
   <router-view />
+  <TestComp />
 </template>
 <script>
 import { defineComponent } from "vue";
