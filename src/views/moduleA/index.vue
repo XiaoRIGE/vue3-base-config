@@ -1,15 +1,20 @@
 <template>
-  <div class="name">
-    <h1>test component</h1>
+  <div class="test">
+    <h1>test</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "TestComp",
+  name: "test",
   setup() {
     return {};
   },
 });
 </script>
+
+<style lang="less" scoped>
+.test {
+}
+</style>

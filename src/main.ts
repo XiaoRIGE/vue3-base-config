@@ -4,6 +4,7 @@ import { loadAllPlugins } from "@/plugins";
 import router from "./router";
 import store from "./store";
 import { registerGlobalComponent } from "@/components/index";
+import "./styles/index.less";
 
 const app = createApp(App);
 

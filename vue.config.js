@@ -250,7 +250,14 @@ module.exports = {
     sourceMap: false,
   },
   // 第三方插件选项
-  pluginOptions: {},
+  pluginOptions: {
+    /** 全局加载less 的 webpack 插件  */
+    /** 依赖 style-resources-loader、vue-cli-plugin-style-resources-loader */
+    "style-resources-loader": {
+      preProcessor: "less",
+      patterns: ["./src/styles/var.less"],
+    },
+  },
   devServer: {
     open: true, // 自动启动浏览器
     proxy: {

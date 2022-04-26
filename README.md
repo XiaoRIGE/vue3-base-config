@@ -40,35 +40,45 @@
 
 ```
 |-- 根目录
-    |-- @types 项目共用的 type
+    
     |-- dist 项目 build 之后的文件夹
-    |-- docs 文档生成的根目录位置
     |-- public 项目静态资源，不经过 webpack，以及默认的模版，适合存放第三方压缩好的资源
     |-- src 主要的开发目录
+    | |-- @types 项目共用的 type
     | |-- App.vue 页面渲染根节点
     | |-- main.ts 入口文件
     | |-- shims-vue.d.ts vue 文件类型的 type
     | |-- services http 请求相关
-    | | |-- axios.ts 业务请求封装
-    | | |-- download.ts 文件下载方法封装
-    | | |-- plugin.ts 相关插件封装
-    | | |-- prefix.ts 静态网关头配置
+    | | |-- config  请求配置相关
+    | | | |-- axios.ts 业务请求封装
+    | | | |-- download.ts 文件下载方法封装
+    | | | |-- plugin.ts 相关插件封装
+    | | | |-- prefix.ts 静态网关头配置
+    | | |-- modules  各个模块请求接口配置
+    | | | |-- moduleA  A模块接口
+    | | | |-- moduleB  B模块接口
     | |-- assets 存放静态资源，这个文件夹下的文件会走 webpack 压缩流程
     | |-- components
-    | | |-- ... 全局组件放在这里 最好按功能类型划分文件夹
+    | | |-- global 全局组件放在这里 最好按功能类型划分文件夹（配置了子文件夹一会递归全局注册）
+    | | |-- index.ts 全局组件自动注册脚本
     | |-- config 全局静态配置
     | |-- layout 页面页面骨架
     | |-- plugins 存放第三方插件
     | | |-- index.ts 插件挂载入口
+    | | |-- antd.ts antd组件注册入口
     | |-- router 路由
     | | |-- index.ts 路由入口
+    | | |-- ... 其他模块路由配置，会自动装载
     | |-- store vuex
     | | |-- modules 多个模块
     | | |-- index.ts 自动装载模块
     | | |-- app app 模块
-    | |-- styles 全局样式，一句 ui 库主题样式
-    | | |-- \_variables.less
+    | |-- styles 全局样式， ui 库主题样式
+    | | |-- antd.less
     | | |-- reset.less
+    | | |-- index.less
+    | | |-- normalize.css 标准化各个浏览器差异
+    | | |-- var.less 主题配置文件
     | |-- utils 常用函数以及其他有用工具
     | | |-- common.ts
     | |-- views 页面级组件

@@ -10,9 +10,12 @@
     <smile-outlined :rotate="180" />
     <loading-outlined />
     <p class="color-red">Test Text</p>
+    <!-- 原始标签使用icon -->
     <svg class="icon" aria-hidden="true">
       <use xlink:href="#iconwenhao" />
     </svg>
+    <!-- 组件方式使用icon -->
+    <icon-font type="iconwenhao" />
   </div>
 </template>
 
@@ -53,5 +56,8 @@ export default defineComponent({
 <style lang="less" scope>
 .color-red {
   color: red;
+}
+.test {
+  color: @test-var;
 }
 </style>
