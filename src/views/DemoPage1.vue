@@ -3,7 +3,16 @@
     <h1 @click="handleTest">DemoPage</h1>
     <CompositionApi />
     <ComClassComponent :count="2" />
+    <home-outlined />
+    <setting-filled />
+    <smile-outlined />
+    <sync-outlined spin />
+    <smile-outlined :rotate="180" />
+    <loading-outlined />
     <p class="color-red">Test Text</p>
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#iconwenhao" />
+    </svg>
   </div>
 </template>
 
@@ -12,10 +21,25 @@ import { defineComponent } from "vue";
 import CompositionApi from "@/components/Com-CompositionApi.vue";
 import ComClassComponent from "@/components/Com-ClassComponent.vue";
 import { $message } from "@/utils/index.ts";
+import {
+  HomeOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+  LoadingOutlined,
+} from "@ant-design/icons-vue";
 
 export default defineComponent({
   name: "Test",
-  components: { CompositionApi, ComClassComponent },
+  components: {
+    CompositionApi,
+    ComClassComponent,
+    HomeOutlined,
+    SettingFilled,
+    SmileOutlined,
+    SyncOutlined,
+    LoadingOutlined,
+  },
   setup() {
     const handleTest = () => {
       $message.success("------");
