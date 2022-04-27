@@ -5,6 +5,8 @@
     <router-link to="/demo-page">demo</router-link>
     |
     <router-link to="/demo-page1">demo1</router-link>
+    |
+    <router-link to="/app_config">test</router-link>
   </div>
   <router-view />
   <TestComp />
