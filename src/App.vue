@@ -1,47 +1,47 @@
-<template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/demo-page">demo</router-link>
-    |
-    <router-link to="/demo-page1">demo1</router-link>
-  </div>
-  <router-view />
-  <TestComp />
-</template>
-<script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  setup() {
-    console.log(
-      "===========process.env",
-      process.env,
-      process.env.VUE_APP_BASE_URL,
-    );
-  },
-});
+<script setup lang="ts">
+// import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
+// import Layout from "./layout/index.vue";
+// import Card from "./components/Card.vue";
+// element全局配置 size 用于设置表单组件的默认尺寸，zIndex 用于设置弹出组件的层级
+// const zIndex = 3000;
+// const size = "small";
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<template>
+  <!-- <el-config-provider :size="size" :z-index="zIndex">
+    <header>
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav>
+      </div>
+    </header>
+    <el-row class="mb-4">
+      <el-button>Default</el-button>
+      <el-button type="primary">Primary</el-button>
+      <el-button type="success">Success</el-button>
+      <el-button type="info">Info</el-button>
+      <el-button type="warning">Warning</el-button>
+      <el-button type="danger">Danger</el-button>
+    </el-row>
+    <Card />
+    <Layout />
+    <RouterView />
+  </el-config-provider> -->
+  <RouterView />
+</template>
+
+<style scoped>
+/* header {
+  line-height: 1.5;
+  max-height: 100vh;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+.wrapper {
+  display: flex;
+  place-items: flex-start;
+  flex-wrap: wrap;
+} */
 </style>

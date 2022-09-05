@@ -1,16 +1,21 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia"; //状态管理机
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate"; //pinia数据持久化
+
 import App from "./App.vue";
-import { loadAllPlugins } from "@/plugins";
 import router from "./router";
-import store from "./store";
-import { registerGlobalComponent } from "@/components/index";
+
+import "./permission";
+
+import "./assets/main.css";
+import "./styles/index.scss";
 
 const app = createApp(App);
 
-/** 加载所有 Plugins */
-loadAllPlugins(app);
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
 
-/** 全局注册组件--components/global目录下组件 */
-registerGlobalComponent(app);
+app.use(pinia);
+app.use(router);
 
-app.use(store).use(router).mount("#app");
+app.mount("#app");

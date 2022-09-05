@@ -1,32 +1,40 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
-
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/demo-page",
-    name: "DemoPage",
-    // webpackChunkName 相同的组件将会被打包到同一个文件中
-    component: () =>
-      import(/* webpackChunkName: "moduleA" */ "../views/DemoPage.vue"),
-  },
-  {
-    path: "/demo-page1",
-    name: "DemoPage1",
-
-    component: () =>
-      import(/* webpackChunkName: "moduleB" */ "../views/DemoPage1.vue"),
-  },
-];
+import { createRouter, createWebHistory } from "vue-router";
+// import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
-  // history: createWebHistory(process.env.BASE_URL),
-  history: createWebHashHistory(),
-  routes,
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: "/",
+      // name: "home",
+      // redirect: "/dashboard",
+      component: () =>
+        import(/* webpackChunkName: "dashboard" */ "@/layout/index.vue"),
+      children: [
+        {
+          path: "/itemOne",
+          name: "itemOne",
+          component: () => import("@/views/ItemOne.vue"),
+        },
+        {
+          path: "/itemTwo",
+          name: "itemTwo",
+          component: () => import("@/views/ItemTwo.vue"),
+        },
+        {
+          path: "/404",
+          name: "404",
+          component: () => import("@/layout/components/404.vue"),
+        },
+      ],
+    },
+
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../views/login/index.vue"),
+    },
+  ],
 });
 
 export default router;
