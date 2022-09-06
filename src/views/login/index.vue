@@ -2,10 +2,10 @@
   <h1>登录页面</h1>
   <RouterLink to="/">home</RouterLink>
 
-  <el-button @click="handleLogin"> 快速登录 </el-button>
-  <el-button @click="handleLogout"> 退出登录 </el-button>
-  <el-button> {{ counter.counter }} </el-button>
-  <el-button> {{ counter.token }} </el-button>
+  <el-button @click="handleLogin">快速登录</el-button>
+  <el-button @click="handleLogout">退出登录</el-button>
+  <el-button>{{ counter.counter }}</el-button>
+  <el-button>{{ counter.token }}</el-button>
 </template>
 <script lang="ts" setup>
 import { useCounterStore } from "../../stores/counter";

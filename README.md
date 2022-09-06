@@ -13,8 +13,8 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 ## Customize configuration
@@ -47,22 +47,24 @@ npm run lint
 
 ## 简介
 
-基于vue3+vite脚手架实现的一个可以快速搭建中后台模板的一个项目（vue3.2+vue-router4.x+vite3+pinia）,目的是为了方便个人使用
-
+基于 vue3+vite 脚手架实现的一个可以快速搭建中后台模板的一个项目（vue3.2+vue-router4.x+vite3+pinia）,目的是为了方便个人使用
 
 ## 功能
 
-1.全局配置NProgress
-2.登录配置（根据token等信息判断路由跳转）
-3.pinia数据持久化
-4.配置404页面
+1.全局配置 NProgress 2.登录配置（根据 token 等信息判断路由跳转）
+3.pinia 数据持久化 4.配置 404 页面
 
 ### 全局配置
 
-#### eslint配置
-#### prettier配置
-#### styleLint配置
-#### commitLint配置
+#### eslint 配置
+
+- [✓]继承 plugin:vue/vue3-recommended、eslint:recommended、@vue/eslint-config-typescript/recommended、vue/eslint-config-prettier 规则
+
+#### prettier 配置
+
+#### styleLint 配置
+
+#### commitLint 配置
 
 #### 样式配置
 
@@ -70,14 +72,11 @@ npm run lint
 - [x] 配置全局 scss 变量
 - [x] 支持自定义 UI 库的主题颜色
 
-
-
 ### 打包优化
 
-- [✓] 配置自动导入插件，页面中使用element-plus无需引入就可以使用（nplugin-vue-components/vite、unplugin-auto-import/vite、）
+- [✓] 配置自动导入插件，页面中使用 element-plus 无需引入就可以使用（nplugin-vue-components/vite、unplugin-auto-import/vite、）
 
-- [x] 静态资源分包处理（目前拆分了vue和element-plus）
-
+- [x] 静态资源分包处理（目前拆分了 vue 和 element-plus）
 
 ### 下面的功能都是待完成目标
 
@@ -85,7 +84,7 @@ npm run lint
 - 用户管理
 	- 登录（视频背景）
 	- 注销
-	
+
 - 权限验证
   - 页面权限
   - 指令权限
@@ -96,7 +95,7 @@ npm run lint
   - dev
   - test
   - prod
-  
+
 - 全局功能
   - iconfont
   - 国际化多语言

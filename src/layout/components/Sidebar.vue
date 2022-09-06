@@ -16,8 +16,8 @@
           <span>Navigator One</span>
         </template>
         <el-menu-item-group title="Group One">
-          <el-menu-item index="/itemOne"> item one </el-menu-item>
-          <el-menu-item index="/itemTwo"> item two </el-menu-item>
+          <el-menu-item index="/itemOne">item one</el-menu-item>
+          <el-menu-item index="/itemTwo">item two</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="Group Two">
           <el-menu-item index="1-3">item three</el-menu-item>
