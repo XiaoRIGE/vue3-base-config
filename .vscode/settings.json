@@ -1,6 +1,12 @@
 {
   "eslint.enable": true,
-  "eslint.validate": ["javascript", "javascriptreact", "vue-html", "vue"],
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "vue-html",
+    "vue",
+  ],
   "eslint.run": "onSave",
   "eslint.format.enable": true,
   "editor.codeActionsOnSave": {
@@ -8,7 +14,13 @@
   },
   "editor.formatOnSave": true,
   "explorer.confirmDelete": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
