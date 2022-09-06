@@ -18,7 +18,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const handleLogout = () => {
   localStorage.setItem("token", "");
-  router.replace("/logins");
+  router.replace("/login");
 };
 </script>
 <style lang="scss" scoped>

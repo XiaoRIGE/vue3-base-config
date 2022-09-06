@@ -34,10 +34,12 @@ import Navbar from "./components/Navbar.vue";
   background-color: #001529 !important;
 }
 .main-container {
+  flex: 1;
   min-height: 100%;
   transition: margin-left 0.28s;
   // margin-left: $sideBarWidth;
   position: relative;
+  background: #fff;
 }
 
 :deep(.el-menu) {

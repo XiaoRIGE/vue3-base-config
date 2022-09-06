@@ -1,7 +1,7 @@
 export interface ScssVariables {
-  theme: string
+  theme: string;
 }
 
-export const variables: ScssVariables
+export const variables: ScssVariables;
 
-export default variables
+export default variables;
