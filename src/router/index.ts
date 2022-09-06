@@ -8,8 +8,7 @@ const router = createRouter({
       path: "/",
       // name: "home",
       // redirect: "/dashboard",
-      component: () =>
-        import(/* webpackChunkName: "dashboard" */ "@/layout/index.vue"),
+      component: () => import(/* webpackChunkName: "dashboard" */ "@/layout/index.vue"),
       children: [
         {
           path: "/itemOne",

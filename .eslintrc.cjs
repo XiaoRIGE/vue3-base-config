@@ -11,9 +11,8 @@ module.exports = {
     "@vue/eslint-config-prettier",
   ],
   rules: {
-    // 关闭eslint检查文件名是否为驼峰命名
-    "vue/multi-word-component-names": "off",
-    "@typescript-eslint/no-explicit-any": "off",
+    "vue/multi-word-component-names": "off", // 关闭eslint检查文件名是否为驼峰命名
+    "@typescript-eslint/no-explicit-any": "off", // 可以使用any
   },
   parserOptions: {
     ecmaVersion: "latest",
