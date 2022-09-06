@@ -8,6 +8,8 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 // UI解析库
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+// 打包压缩插件
+// import viteCompression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,9 +21,11 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    // 打包压缩，主要是本地gzip，如果服务器配置压缩也可以
+    // viteCompression(),
   ],
   css: {
-    // css预处理器
+    // 指定传递给 CSS 预处理器的选项
     preprocessorOptions: {
       scss: {
         // 此处修改为要被预处理的scss文件地址
@@ -32,6 +36,30 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+  build: {
+    assetsDir: "./static",
+    cssCodeSplit: true, //如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
+
+    rollupOptions: {
+      //自定义底层的 Rollup 打包配置
+      output: {
+        chunkFileNames: "static/js/[name]-[hash].js",
+        entryFileNames: "static/js/[name]-[hash].js",
+        assetFileNames: "static/[ext]/[name]-[hash].[ext]",
+        //静态资源分拆打包，会将所有node_modules中资源拆分独立文件
+        // manualChunks(id) {
+        //   if (id.includes("node_modules")) {
+        //     return id.toString().split("node_modules/")[1].split("/")[0].toString();
+        //   }
+        // },
+        // 拆分代码，这个就是分包，配置完后自动按需加载
+        manualChunks: {
+          vue: ["vue", "vue-router"],
+          elementPlus: ["element-plus"],
+        },
+      },
     },
   },
 });

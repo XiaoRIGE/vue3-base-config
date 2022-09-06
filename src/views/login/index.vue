@@ -27,5 +27,6 @@ const handleLogin = () => {
 };
 const handleLogout = () => {
   localStorage.setItem("token", "");
+  counter.setToken("");
 };
 </script>

@@ -57,6 +57,27 @@ npm run lint
 3.pinia数据持久化
 4.配置404页面
 
+### 全局配置
+
+#### eslint配置
+#### prettier配置
+#### styleLint配置
+#### commitLint配置
+
+#### 样式配置
+
+- [x] 自动注入全局样式
+- [x] 配置全局 scss 变量
+- [x] 支持自定义 UI 库的主题颜色
+
+
+
+### 打包优化
+
+- [✓] 配置自动导入插件，页面中使用element-plus无需引入就可以使用（nplugin-vue-components/vite、unplugin-auto-import/vite、）
+
+- [x] 静态资源分包处理（目前拆分了vue和element-plus）
+
 
 ### 下面的功能都是待完成目标
 
