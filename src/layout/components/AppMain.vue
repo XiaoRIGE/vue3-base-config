@@ -3,7 +3,7 @@
 -->
 <template>
   <section class="app-main">
-    <h1>内容区域</h1>
+    <h1>内容区域子应用</h1>
     <router-view v-slot="{ Component }">
       <!-- <keep-alive> -->
       <component :is="Component" />
